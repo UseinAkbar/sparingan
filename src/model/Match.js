@@ -5,7 +5,7 @@ const Match = new mongoose.Schema({
       type: String,
       required: true
     },
-    sport_name: {
+    id_sport: {
       type: String,
       required: true
     },
