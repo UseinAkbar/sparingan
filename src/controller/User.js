@@ -61,7 +61,7 @@ exports.update = (req,res) => {
     const success = {
       user,
       meta:{
-        message: "Successfully to update"
+        message: "Successfully update"
       }
     }
     res.status(200).send(success);
@@ -104,7 +104,7 @@ exports.delete = (req,res) => {
       })
   }catch(err) {
       return res.status(500).send({
-          message: "Could not delete user ",
+          message: "Cannot delete user",
         });
   }
 }

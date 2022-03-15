@@ -10,12 +10,10 @@ const Match = new mongoose.Schema({
       required: true
     },
     match_player: {
-      type: Number,
-      required: true
+      type: Number
     },
     match_description: {
       type: String,
-      required: true
     },
     match_location: {
       type: String,
