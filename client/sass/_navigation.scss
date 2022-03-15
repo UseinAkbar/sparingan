@@ -1,0 +1,45 @@
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.2rem 16rem;
+
+    &__group {
+        display: grid;
+        grid-template-columns: repeat(3, min-content);
+        align-items: center;
+        grid-gap: 3rem;
+    }
+
+    &__logo {
+
+    }
+
+    &__link,
+    &__link:visited {
+        color: $color-compliment;
+
+        &:hover {
+            color: $color-secondary;
+        }
+    }
+
+    &__btn-sign,
+    &__btn-sign:visited {
+        background-color: $color-ternary;
+        padding: 8px 12px;
+        color: $color-secondary;
+        border-radius: 4px;
+
+        &:hover {
+            background-color: $color-btn-hovered;
+        }
+    }
+
+    &__link,
+    &__btn-sign {
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.6rem;
+        transition: .1s ease;
+    }
+}
