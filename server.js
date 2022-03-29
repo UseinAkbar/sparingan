@@ -11,7 +11,7 @@ require('./src/utils/MongoConnect');
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-app.use("/", router);
+app.use("/api/v1/", router);
 
 
 app.listen(port, () => {

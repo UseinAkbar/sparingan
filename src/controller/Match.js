@@ -16,17 +16,20 @@ exports.read = (req,res) => {
 exports.create = (req,res) => {
   try{
       Match.find({id_user:req.body.id_user}).then(user => {
-        if(user.length == 0){
           const dataMatch = new Match({
             id_user: req.body.id_user,
             id_sport: req.body.id_sport,
             match_player: req.body.match_player,
             match_description: req.body.match_description,
-            match_location: req.body.match_location,
+            match_location_lat: req.body.match_location_lat,
+            match_location_lang: req.body.match_location_lang,
+            match_location_city: req.body.match_location_city,
+            match_location_district: req.body.match_location_district,
+            match_location_address: req.body.match_location_address,
             match_date: req.body.match_date,
             match_cost: req.body.match_cost,
           });
-
+ 
           dataMatch.save().then(data => {
             const success = {
               data,
@@ -38,10 +41,9 @@ exports.create = (req,res) => {
           }).catch((err) => {
             res.status(500).send({
               message: "Failed to registred or Please fill out all the forms",
+              technical_error: err,
             });
           });
-
-        }
       })
   }catch(err){
       console.log({message: err});
@@ -114,4 +116,40 @@ exports.delete = (req, res) => {
         message: "Cannot delete match",
       });
   }
+}
+
+exports.FindMatchViaCity = (req,res) => {
+  Match.find({match_location_city: {'$regex': req.body.city ,$options:'i'}}).then(match => {
+    if (match.length == 0){
+      return res.status(404).send({
+        meta: {
+          message: "Match not found"
+        }
+      })
+    }
+    return res.status(200).send({
+      match,
+      meta: {
+        message: `${match.length} matches found`
+      }
+    })
+  })
+}
+
+exports.FindMatchViaDistrict = (req,res) => {
+  Match.find({match_location_district: {'$regex': req.body.district ,$options:'i'}}).then(match => {
+    if (match.length == 0){
+      return res.status(404).send({
+        meta: {
+          message: "Match not found"
+        }
+      })
+    }
+    return res.status(200).send({
+      match,
+      meta: {
+        message: `${match.length} matches found`
+      }
+    })
+  })
 }

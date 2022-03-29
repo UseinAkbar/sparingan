@@ -24,4 +24,9 @@ router.get('/sport/:id', Sport.find)
 router.put('/sport/:id', Sport.update)
 router.delete('/sport/:id', Sport.detele)
 
+// functional
+router.post('/login', User.login)
+router.post('/matchCity', Match.FindMatchViaCity)
+router.post('/matchDistrict', Match.FindMatchViaDistrict)
+
 module.exports = router;

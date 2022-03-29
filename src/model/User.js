@@ -12,8 +12,13 @@ const User = new mongoose.Schema({
   name: {
     type: String,
   },
+  whatsapp: {
+    type: String,
+    required: true
+  },
   city: {
     type: String,
+    required: true
   },
   description: {
     type: String,

@@ -15,7 +15,23 @@ const Match = new mongoose.Schema({
     match_description: {
       type: String,
     },
-    match_location: {
+    match_location_lat: {
+      type: String,
+      required: true
+    },
+    match_location_lang: {
+      type: String,
+      required: true
+    },
+    match_location_city: {
+      type: String,
+      required: true
+    },
+    match_location_district: {
+      type: String,
+      required: true
+    },
+    match_location_address: {
       type: String,
       required: true
     },
@@ -26,4 +42,4 @@ const Match = new mongoose.Schema({
     match_cost: String
 })
 
-module.exports = mongoose.model('match',Match)
+module.exports = mongoose.model('match', Match)

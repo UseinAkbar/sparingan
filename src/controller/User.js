@@ -19,6 +19,7 @@ exports.create = (req,res) => {
           const dataUser = new User({
             name: req.body.name,
             city: req.body.city,
+            whatsapp: req.body.whatsapp,
             description: req.body.description,
             isProfessional: req.body.isProfessional,
             email: req.body.email,
@@ -106,5 +107,29 @@ exports.delete = (req,res) => {
       return res.status(500).send({
           message: "Cannot delete user",
         });
+  }
+}
+
+exports.login = (req,res) => {
+  try{
+    User.find({email: req.body.email, password: req.body.password}).then(user => {
+      if(user.length == 1){
+        return res.status(200).send({
+          user,
+          meta: {
+            message: "Successfully Login"
+          }
+        })
+      }else{
+        return res.status(404).send({
+          message: "Failed to Login, Username or password is invalid",
+        })
+      }
+    })
+  }catch(err){
+    console.log(err);
+    return res.status(500).send({
+      message: "Please fill out all the forms"
+    })
   }
 }
