@@ -3,7 +3,7 @@ import key from '../asset/icon/Key.svg'
 import location from '../asset/icon/Location_Icon.svg'
 
 const Header = () => {
-    const cabangOlahraga = ['sepakbola', 'futsal', 'tenis meja', 'tenis lapangan', 'golf', 'volley']
+    const cabangOlahraga = ['sepakbola', 'futsal', 'tenis meja', 'tenis lapangan', 'badminton', 'golf', 'volley']
     const [value, setValue] = useState('')
 
     const handleChange = e => {
@@ -15,8 +15,8 @@ const Header = () => {
     }
 
     return (
-        <div className="header">
-            <h1 className="header__title">Cari Lawan Terbaikmu Untuk Kemudian Bertanding</h1>
+        <header className="header">
+            <h1 className="header__title">Cari Lawan Terbaikmu Untuk Bertanding</h1>
             <div className="header__form-group">
                 <form action="" className="header__form" onSubmit={handleSubmit}>
                     <select name="cabang" id="cabor" className="form__cabor" required>
@@ -35,7 +35,7 @@ const Header = () => {
                     <button type='submit' className="form__btn">Cari</button>
                 </form>
             </div>
-        </div>
+        </header>
     )
 }
 

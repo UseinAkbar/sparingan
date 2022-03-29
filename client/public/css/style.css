@@ -11,6 +11,7 @@ html {
   box-sizing: inherit; }
 
 body {
+  background-color: #fff;
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
   color: #0D0D0D;
@@ -24,7 +25,7 @@ body {
 .navigation {
   display: flex;
   justify-content: space-between;
-  padding: 1.2rem 16rem; }
+  padding: 1.5rem 14rem; }
   .navigation__group {
     display: grid;
     grid-template-columns: repeat(3, min-content);
@@ -47,15 +48,77 @@ body {
     font-size: 1.6rem;
     transition: .1s ease; }
 
+.navprofile, .navprofile__user {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  align-items: center;
+  grid-gap: 2rem; }
+  .navprofile__btn {
+    outline: none;
+    border: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: inherit;
+    background-color: #00DB2F;
+    padding: .8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .1s ease; }
+    .navprofile__btn:hover {
+      background-color: #08c030; }
+  .navprofile__user {
+    grid-gap: 1rem;
+    position: relative;
+    padding: 1.2rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: .1s ease; }
+    .navprofile__user:hover .navprofile__option {
+      transform: translate(1.2rem, 0);
+      opacity: 1;
+      visibility: visible; }
+  .navprofile__img {
+    width: 3.2rem;
+    height: 3.2rem;
+    border-radius: 50%; }
+  .navprofile__username, .navprofile__link, .navprofile__link:visited {
+    font-weight: 600;
+    font-size: 1.6rem; }
+  .navprofile__option {
+    position: absolute;
+    top: 110%;
+    left: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    background-color: #fff;
+    transform: translate(1.2rem, -1rem);
+    opacity: 0;
+    visibility: hidden;
+    transition: .2s ease;
+    overflow: hidden; }
+  .navprofile__link, .navprofile__link:visited {
+    font-size: 1.4rem;
+    text-decoration: none;
+    color: #0D0D0D;
+    padding: 1rem 1.2rem;
+    transition: .1s ease; }
+    .navprofile__link:hover, .navprofile__link:visited:hover {
+      background-color: #e6e6e6; }
+
 .header {
-  height: calc(100vh - 65px);
+  min-height: calc(100vh - 72px);
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: min-content;
   justify-items: center;
   align-content: center;
   grid-gap: 3rem;
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url("./Background.jpg");
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url("./banner.jpg");
+  background-position-y: 60%;
   background-size: cover; }
   .header__title {
     width: 65%;
@@ -112,3 +175,368 @@ body {
       transition: .1s ease; }
       .header__form .form__btn:hover {
         background-color: #08c030; }
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: min-content;
+  grid-gap: 8rem;
+  padding: 12rem 15rem; }
+  .content__section {
+    display: grid;
+    grid-template-columns: 1fr 45rem;
+    grid-auto-rows: min-content;
+    align-items: center;
+    grid-gap: 5rem; }
+    .content__section img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; }
+  .content__section--middle {
+    grid-template-columns: 50rem 1fr; }
+  .content__desc {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+    grid-gap: 2rem; }
+    .content__desc .title {
+      font-size: 3.8rem;
+      font-weight: 700; }
+    .content__desc .paraph {
+      font-size: 1.6rem;
+      font-weight: 400; }
+    .content__desc .step {
+      font-size: 1.6rem;
+      font-weight: 600;
+      border-spacing: 1rem .8rem; }
+      .content__desc .step tr td:first-child {
+        position: relative;
+        text-align: center; }
+      .content__desc .step tr td:last-child {
+        padding-left: 2.5rem; }
+      .content__desc .step tr td:first-child::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #00DB2F;
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        z-index: -1; }
+    .content__desc .link,
+    .content__desc .link:visited {
+      color: #00DB2F;
+      font-size: 2rem;
+      font-weight: 600;
+      text-decoration: none;
+      justify-self: start;
+      display: flex;
+      align-items: center;
+      gap: 1.4rem; }
+      .content__desc .link svg,
+      .content__desc .link:visited svg {
+        fill: none;
+        width: 1.8rem;
+        height: 1.8rem;
+        transform: translateY(1px); }
+
+.review {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 4rem; }
+  .review__title {
+    font-size: 3.8rem;
+    font-weight: 700; }
+  .review__profile {
+    width: 85%;
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-column-gap: 3rem;
+    grid-row-gap: 2rem;
+    align-items: center;
+    justify-self: center; }
+  .review__name h1 {
+    font-size: 2.6rem;
+    margin-bottom: 1.5rem; }
+  .review__name h2 {
+    font-size: 1.6rem;
+    font-weight: 600; }
+  .review__name h3 {
+    font-size: 1.2rem;
+    font-weight: 400; }
+
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  grid-auto-rows: min-content;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  grid-gap: 8rem;
+  background-size: cover;
+  min-height: calc(100vh - 72px); }
+  .form__logo {
+    width: 16rem; }
+  .form__title {
+    font-size: 4rem;
+    font-weight: 700;
+    color: #fff; }
+
+.input-group input::placeholder {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  color: #a5a5a5;
+  font-size: 1.2rem; }
+
+.input-group input:focus ~ label {
+  font-weight: 700; }
+
+.login {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("./Background_Image_1.jpg"); }
+  .login__form form, .forgotPass__form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; }
+
+.regis {
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("./Background_Image_3.jpg");
+  background-position: 1rem 45%; }
+  .regis__form form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.2rem; }
+  .regis__group-link {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.2rem; }
+
+.login__form, .forgotPass__form,
+.regis__form {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: min-content;
+  grid-gap: 1.4rem;
+  background-color: #fff;
+  color: #0D0D0D;
+  border-radius: 4px;
+  padding: 2.2rem 4rem; }
+  .login__form-title,
+  .regis__form-title {
+    font-weight: 700;
+    font-size: 3rem; }
+  .login__form span, .forgotPass__form span,
+  .regis__form span {
+    color: #8C8C8C;
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    align-items: center;
+    grid-gap: 1.4rem; }
+    .login__form span::before, .forgotPass__form span::before, .login__form span::after, .forgotPass__form span::after,
+    .regis__form span::before,
+    .regis__form span::after {
+      content: '';
+      height: .6px;
+      opacity: .6;
+      display: inline-block;
+      background-color: currentColor; }
+  .login__form form, .forgotPass__form form,
+  .regis__form form {
+    margin-top: -1rem; }
+  .login__form form > div, .forgotPass__form form > div,
+  .regis__form form > div {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: .6rem;
+    font-weight: 500; }
+  .login__form form .login__cta, .forgotPass__form form .login__cta,
+  .login__form form .regis__cta,
+  .forgotPass__form form .regis__cta,
+  .regis__form form .login__cta,
+  .regis__form form .regis__cta {
+    flex-direction: column; }
+  .login__form form > .input-group input, .forgotPass__form form > .input-group input,
+  .regis__form form > .input-group input {
+    padding: .8rem .6rem;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid rgba(13, 13, 13, 0.5); }
+    .login__form form > .input-group input:focus, .forgotPass__form form > .input-group input:focus,
+    .regis__form form > .input-group input:focus {
+      border: 1.2px solid #0d0d0d;
+      transition: .2s ease; }
+  .login__form .regis__cta, .forgotPass__form .regis__cta,
+  .regis__form .regis__cta {
+    grid-column: 1/-1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center; }
+  .login__form .login__cta, .forgotPass__form .login__cta, .login__form .regis__cta, .forgotPass__form .regis__cta,
+  .regis__form .login__cta,
+  .regis__form .regis__cta {
+    text-align: center;
+    gap: .8rem; }
+    .login__form .login__cta button, .forgotPass__form .login__cta button,
+    .login__form .regis__cta button,
+    .forgotPass__form .regis__cta button,
+    .regis__form .login__cta button,
+    .regis__form .regis__cta button {
+      outline: none;
+      border: none;
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: inherit;
+      background-color: #00DB2F;
+      padding: .8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: .1s ease; }
+      .login__form .login__cta button:hover, .forgotPass__form .login__cta button:hover,
+      .login__form .regis__cta button:hover,
+      .forgotPass__form .regis__cta button:hover,
+      .regis__form .login__cta button:hover,
+      .regis__form .regis__cta button:hover {
+        background-color: #08c030; }
+    .login__form .login__cta a, .forgotPass__form .login__cta a,
+    .login__form .login__cta a:visited,
+    .forgotPass__form .login__cta a:visited,
+    .login__form .regis__cta a,
+    .forgotPass__form .regis__cta a,
+    .login__form .regis__cta a:visited,
+    .forgotPass__form .regis__cta a:visited,
+    .regis__form .login__cta a,
+    .regis__form .login__cta a:visited,
+    .regis__form .regis__cta a,
+    .regis__form .regis__cta a:visited {
+      font-size: 1rem;
+      color: inherit; }
+    .login__form .login__cta p a, .forgotPass__form .login__cta p a,
+    .login__form .regis__cta p a,
+    .forgotPass__form .regis__cta p a,
+    .regis__form .login__cta p a,
+    .regis__form .regis__cta p a {
+      font-weight: 700;
+      text-decoration: none; }
+
+.login__link, .login__link:visited,
+.regis__link,
+.regis__link:visited {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .8rem;
+  text-decoration: none;
+  color: #0D0D0D;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border: 1px solid #0D0D0D;
+  padding: .4rem 1.6rem;
+  border-radius: 4px; }
+
+.forgotPass {
+  grid-template-columns: max-content min-content;
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("./Background_Image_2.jpg"); }
+  .forgotPass__form {
+    width: 30rem; }
+    .forgotPass__form-title {
+      font-weight: 700;
+      font-size: 3rem; }
+    .forgotPass__form-paraph {
+      font-weight: 400;
+      font-size: 1.2rem; }
+  .forgotPass form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; }
+    .forgotPass form > div {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: .6rem;
+      font-weight: 500; }
+    .forgotPass form input {
+      padding: .6rem;
+      border-radius: 4px;
+      outline: none;
+      border: 1px solid rgba(13, 13, 13, 0.5); }
+      .forgotPass form input:focus {
+        border: 1.2px solid #0d0d0d;
+        transition: .2s ease; }
+    .forgotPass form button {
+      outline: none;
+      border: none;
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: inherit;
+      background-color: #00DB2F;
+      padding: .8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: .1s ease; }
+      .forgotPass form button:hover {
+        background-color: #08c030; }
+
+.match {
+  padding: 1.5rem 14rem; }
+  .match__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-gap: 2.5rem;
+    grid-row-gap: 3rem; }
+  .match__card {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 12rem;
+    border-radius: 4px;
+    background-color: #f2f2f2; }
+    .match__card button {
+      outline: none;
+      border: none;
+      font-family: "Montserrat", sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      background-color: #D2F7DD;
+      padding: 1rem;
+      margin-top: 1rem;
+      cursor: pointer;
+      transition: .1s ease; }
+      .match__card button:active {
+        transform: scale(0.96); }
+  .match__img {
+    border-radius: 4px 4px 0 0; }
+  .match__detail {
+    font-weight: 600;
+    font-size: 1.2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    grid-gap: 1rem; }
+    .match__detail-box {
+      display: grid;
+      grid-template-columns: repeat(2, max-content);
+      justify-items: center;
+      grid-row-gap: 1rem;
+      grid-column-gap: 1.5rem;
+      margin-top: -2rem; }
+    .match__detail-box p {
+      display: flex;
+      align-items: center;
+      gap: 4px; }
+    .match__detail-box p img {
+      width: 1.2rem; }
+  .match__title {
+    font-size: 1.8rem;
+    background-color: #f2f2f2;
+    padding: .8rem;
+    border-top-right-radius: 4px;
+    transform: translateY(-50%);
+    justify-self: start; }
+  .match__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; }
+  .match__location {
+    font-weight: 700;
+    font-size: 1.4rem; }

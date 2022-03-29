@@ -1,0 +1,16 @@
+@mixin button {
+    outline: none;
+    border: none;
+    font-family: $font-primary;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: inherit;
+    background-color: $color-ternary;
+    padding: .8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .1s ease;
+        &:hover {
+            background-color: $color-btn-hovered;
+        }
+}
