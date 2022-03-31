@@ -29,8 +29,8 @@ const Login = () => {
             }).then(function(response) {
                 return response.json();
             }).then(function(data) {
-                if(data.data) {
-                    localStorage.setItem('idUser', data.data._id);
+                if(data.user) {
+                    localStorage.setItem('idUser', data.user[0]._id);
                     navigate('/')
                     window.location.reload()
                 } else {

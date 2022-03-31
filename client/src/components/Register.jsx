@@ -48,10 +48,13 @@ const Register = () => {
             }).then(function(response) {
                 return response.json();
             }).then(function(data) {
+                console.log(data)
                 if(data.data) {
                     localStorage.setItem('idUser', data.data._id);
                     navigate('/')
                     window.location.reload()
+                }else if(data.message){
+                  alert("email sudah ada")
                 }
             });
 
