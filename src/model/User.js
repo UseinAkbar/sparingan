@@ -11,6 +11,7 @@ const User = new mongoose.Schema({
   },
   name: {
     type: String,
+    required: true
   },
   whatsapp: {
     type: String,
@@ -20,11 +21,9 @@ const User = new mongoose.Schema({
     type: String,
     required: true
   },
-  description: {
-    type: String,
-  },
   isProfessional: {
     type: Boolean,
+    required: true
   },
 })
 
