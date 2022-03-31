@@ -2,7 +2,8 @@ import React from 'react';
 import NavProfile from './NavProfile';
 import logo from '../asset/icon/Logo_Sportgather.svg'
 
-const Navigation = ({isLogged}) => {
+const Navigation = () => {
+    let detailUser = localStorage.getItem('idUser')
     return (
         <div className="navigation">
             <div className="navigation__group">
@@ -10,7 +11,7 @@ const Navigation = ({isLogged}) => {
                 <a href="/" className="navigation__link">Home</a>
                 <a href="/pertandingan" className="navigation__link">Pertandingan</a>
             </div>
-            { isLogged ? <NavProfile /> : <a href="/login" className="navigation__btn-sign">Sign in / Sign Up</a> }
+            { detailUser ? <NavProfile /> : <a href="/login" className="navigation__btn-sign">Sign in / Sign Up</a> }
         </div>
     )
 }

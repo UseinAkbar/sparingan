@@ -1,34 +1,55 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Form from './UI/Form';
-import google from '../asset/icon/Google_Icon.svg';
-import fb from '../asset/icon/Facebook_Icon.svg';
 
 const Login = () => {
-    const [formValue, setFormValue] = useState({email: '', password: ''})
-    const {email, password} = formValue
+    let navigate = useNavigate();
+    const [loginValue, setLoginValue] = useState({email: '', password: ''})
+    const {email, password} = loginValue
 
     const handleChange = e => {
-        setFormValue(preValue => {
+        setLoginValue(preValue => {
             return {
                 ...preValue,
                 [e.target.name]: e.target.value
             }
         })
     }
+
+    const loginSubmit = (e) => {
+        e.preventDefault()
+
+        fetch('http://localhost:5000/api/v1/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json',  'Accept': 'application/json'},
+                body: JSON.stringify({
+                    email: email,
+                    password: password,
+                })
+            }).then(function(response) {
+                return response.json();
+            }).then(function(data) {
+                if(data.data) {
+                    localStorage.setItem('idUser', data.data._id);
+                    navigate('/')
+                    window.location.reload()
+                } else {
+                    alert('Email / Password Anda Salah')
+                }
+            });
+    }
+    
     return (
         <Form className="login">
             <div className="login__form">
                 <h1 className="login__form-title">Sign In</h1>
-                {/* <a href="#" className="login__link login__google"><img src={google} alt='' />Sign in with Google</a>
-                <a href="#" className="login__link login__facebook"><img src={fb} alt='' />Sign in with Facebook</a>
-                <span>Or</span> */}
-                <form action="" className="">
+                <form action="" className="" onSubmit={loginSubmit}>
                     <div className='input-group'>
-                        <input type="email" name='email' id='email' required autoComplete='off' autoFocus='on' placeholder='Masukkan email anda' />
+                        <input type="email" name='email' id='email' onChange={handleChange} required autoComplete='off' autoFocus='on' placeholder='Masukkan email anda' />
                         <label htmlFor="email">Email</label> 
                     </div>
                     <div className='input-group'>
-                        <input type="password" name='password' id='password' required autoComplete='off' placeholder='●●●●●●●' />
+                        <input type="password" name='password' id='password' onChange={handleChange} required autoComplete='off' placeholder='●●●●●●●' />
                         <label htmlFor="password">Password</label> 
                     </div>
                     <div className="login__cta">

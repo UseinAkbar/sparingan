@@ -7,21 +7,24 @@ import Login from './components/Login';
 import Register from './components/Register';
 import ForgotPass from './components/ForgotPass';
 import EditProfile from './components/EditProfile';
+import FormMatch from './components/FormMatch';
 // import key from './asset/icon/key.svg'
 
 const App = () => {
-  const [isLogged, setLogged] = useState(false)
+  let detailUser = localStorage.getItem('idUser')
+
   return (
     <Router>
       <div className="App">
-        <Navigation isLogged={isLogged} />
+        <Navigation />
         <Routes>
           <Route path='/' element={<Home />} exact />
-          <Route path='/pertandingan' element={isLogged ? <Match /> : <Navigate to='/' />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
+          <Route path='/pertandingan' element={<Match />} />
+          <Route path='/login' element={detailUser ? <Navigate to='/' /> : <Login />} />
+          <Route path='/register' element={detailUser ? <Navigate to='/' /> : <Register />} />
           <Route path='/forgot' element={<ForgotPass />} />
           <Route path='/profile' element={<EditProfile />} />
+          <Route path='/form-match' element={<FormMatch />} />
           {/* <Route component={Error}></Route> */}
         </Routes>
         {/* <Footer /> */}

@@ -50,8 +50,10 @@
     align-items: center;
     grid-gap: 2rem;
 
-    &__btn {
+    &__btn,
+    &__btn:visited {
         @include button;
+        text-decoration: none;
     }
 
     &__user {
@@ -90,6 +92,7 @@
         top: 110%;
         left: 0;
         width: 100%;
+        z-index: 2;
         display: grid;
         grid-template-columns: 1fr;
         box-shadow: 0px 0px 30px rgba(0, 0, 0, .2);

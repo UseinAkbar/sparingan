@@ -1,8 +1,10 @@
 import React from 'react';
+import SearchMatch from './SearchMatch';
 import MatchCard from './MatchCard';
 import futsal from '../asset/Image/futsal.jpg';
 import golf from '../asset/Image/golf.jpg';
 import sepakbola from '../asset/Image/football.jpg';
+import badminton from '../asset/Image/badminton.jpg';
 import basket from '../asset/Image/basket.jpg';
 import volley from '../asset/Image/volley.jpg';
 import pingpong from '../asset/Image/pingpong.jpg';
@@ -82,6 +84,14 @@ const Match = () => {
         harga: '45.000',
         tanggal: '23 Agustus 2022',
         lokasi: 'Medan'
+    },
+    {
+        nama: 'Badminton',
+        status: 'Amatir',
+        jumlah: 2,
+        harga: '50.000',
+        tanggal: '23 November 2022',
+        lokasi: 'Jambi'
     }
 ]
 
@@ -100,11 +110,19 @@ const Match = () => {
             return pingpong
         } else if (nama === 'Tennis') {
             return tennis
+        } else if (nama === 'Badminton') {
+            return badminton
         }
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault()
+        console.log('submitted');
     }
 
     return (
         <div className="match">
+            <SearchMatch handleSubmit={handleSubmit} className={'match__form'} selectClassName={'match__input-group'} />
             <div className="match__container">
                 {data.map(item => {
                     return <MatchCard item={item} setBackgroundCard={setBackgroundCard} />

@@ -27,9 +27,19 @@
     
     &__form {
         display: grid;
-        grid-template-columns: repeat(4, min-content);
+        grid-template-columns: repeat(4, 20rem);
         align-items: center;
         grid-gap: 2.5rem;
+
+        .select-input {
+            font-size: 1.4rem;
+            color: $color-secondary;
+            font-weight: 500;
+        }
+        
+        .select-input > div {
+            cursor: pointer;
+        }
 
         .form__cabor {
 
@@ -75,20 +85,7 @@
         }
 
         .form__btn {
-            border: none;
-            outline: none;
-            font-family: inherit;
-            font-size: 1.6rem;
-            font-weight: 600;
-            background-color: $color-ternary;
-            border-radius: 4px;
-            padding: 1.6rem 5rem;
-            cursor: pointer;
-            transition: .1s ease;
-
-            &:hover {
-                background-color: $color-btn-hovered;
-            }
+            @include button;
         }
     }
 }
