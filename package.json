@@ -11,6 +11,7 @@
   },
   "author": "Muhammad Rafli Ramadhan & Usein Akbar",
   "license": "MIT",
+  "proxy": "localhost:5000",
   "dependencies": {
     "body-parser": "^1.19.2",
     "concurrently": "^7.0.0",
