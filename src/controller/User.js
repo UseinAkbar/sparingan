@@ -37,6 +37,7 @@ exports.create = (req,res) => {
           }).catch((err) => {
             res.status(500).send({
               message: "Failed to registred or Please fill out all the forms",
+              technical_error: err
             });
           });
 
@@ -129,7 +130,8 @@ exports.login = (req,res) => {
   }catch(err){
     console.log(err);
     return res.status(500).send({
-      message: "Please fill out all the forms"
+      message: "Please fill out all the forms",
+      technical_error: err
     })
   }
 }

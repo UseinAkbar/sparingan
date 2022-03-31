@@ -9,7 +9,7 @@ const router = require("./src/routes");
 
 require('./src/utils/MongoConnect');
 
-app.use(cors())
+app.use(cors({ origin: "http://localhost:8000", optionsSuccessStatus: 200 }));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use("/api/v1/", router);
