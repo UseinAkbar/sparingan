@@ -22,7 +22,7 @@ const User = new mongoose.Schema({
     required: true
   },
   isProfessional: {
-    type: Boolean,
+    type: String,
     required: true
   },
 })
