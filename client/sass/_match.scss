@@ -1,5 +1,29 @@
 .match {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 3rem;
     padding: 1.5rem 14rem;
+
+    &__form {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        align-items: center;
+        grid-gap: 2.5rem;
+
+        .form__btn {
+            @include button;
+        }
+
+        .select-input {
+            font-size: 1.4rem;
+            color: $color-secondary;
+            font-weight: 500;
+        }
+        
+        .select-input > div {
+            cursor: pointer;
+        }
+    }
 
     &__container {
         display: grid;
