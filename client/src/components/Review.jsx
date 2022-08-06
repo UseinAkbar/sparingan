@@ -1,19 +1,28 @@
 import React, { useState } from 'react';
-import profil from '../asset/Image/Image_Profil.png';
+import { testimoni } from './data';
 
 const Review = () => {
     return (
-        <div className="review">
-            <h1 className="review__title">Komentar dari temanmu</h1>
-            <div className="review__profile">
-                <img src={profil} alt="profil user" />
-                <div className="review__name">
-                    <h1>“Websitenya sangat membantu untuk saya ketika ingin bertanding dan bingung untuk mencari lawannya siapa.”</h1>
-                    <h2>Rangga Lesmana</h2>
-                    <h3>Pesepakbola Amatir</h3>
-                </div>
+        <section className="review">
+            <h1 className="review__title">Komentar lainnya</h1>
+            <div className="review__box">
+                {testimoni.map((item, i) => {
+                    const {nama, profil, profesi, pesan} = item
+                    return (
+                        <div className="review__profile" key={i}>
+                            <div className="review__header">
+                                <img src={profil} alt="profil user" />
+                                <div className="review__desc">
+                                    <h1>{nama}</h1>
+                                    <h2>{profesi}</h2>
+                                </div>
+                            </div>
+                            <p className="review__testimoni">{pesan}</p>
+                        </div>
+                    )
+                })}
             </div>
-        </div>
+        </section>
     )
 }
 

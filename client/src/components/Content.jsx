@@ -3,7 +3,8 @@ import Review from './Review';
 import section1 from '../asset/Image/Section_Image_1.jpg';
 import section2 from '../asset/Image/Section_Image_2.jpg';
 import section3 from '../asset/Image/Section_Image_3.jpg';
-import icon from '../asset/icon/sprite.svg';
+import rarr from '../asset/icon/bx-chevron-right.svg';
+import Footer from './Footer';
 
 
 const Content = () => {
@@ -11,11 +12,9 @@ const Content = () => {
         <main className="content">
             <section className="content__section content__section--top">
                 <div className="content__desc">
-                    <h1 className="title">Temukan lawan disekitarmu dengan mudah</h1>
+                    <h1 className="title">Temukan lawan di sekitarmu dengan mudah</h1>
                     <p className="paraph">Disini kamu dapat dengan mudah mencari rekan atau lawan di sekitar tempat kamu atau kota kamu untuk melakukan olahraga favorit bersamamu dan menciptakan pertemanan dengan orang baru</p>
-                    <a href="#" className="link">Cari Teman Sekarang 
-                        <svg ><use xlinkHref={`${icon}#icon-rarr`}></use></svg>
-                    </a>
+                    <a href="#" className="link">Cari Lawan Sekarang <img src={rarr} alt="" /></a>
                 </div>
                 <img src={section1} alt="person with sport rope" />
             </section>
@@ -44,13 +43,12 @@ const Content = () => {
                 <div className="content__desc">
                     <h1 className="title">Berbagai pilihan cabang olahraga untuk kamu</h1>
                     <p className="paraph">Kamu tidak perlu khawatir untuk mencari cabang olahraga yang kamu minati, disini kami menyediakan berbagai cabang olahraga untuk kamu dan pertandinganmu</p>
-                    <a href="#" className="link">Cari Cabang Olarahraga Kesukaanmu 
-                        <svg ><use xlinkHref={`${icon}#icon-rarr`}></use></svg>
-                    </a>
+                    <a href="#" className="link">Cari Olahraga Favoritmu <img src={rarr} alt="" /></a>
                 </div>
                 <img src={section3} alt="tennis racket" />
             </section>
             <Review />
+            <Footer />
         </main>
     )
 }
