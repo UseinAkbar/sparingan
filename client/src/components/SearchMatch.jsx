@@ -18,6 +18,7 @@ const SearchMatch = ({handleSubmit, className, selectClassName}) => {
         }
         console.log(selectedState);
     }
+    
     return (
         <form action="" className={className} onSubmit={handleSubmit}>
             <SelectOption handleSelect={handleSelect} classState={selectClassName} placeholder={'Cabang Olahraga'} opsiSelect={opsiOlahraga} name={'cabor'} />

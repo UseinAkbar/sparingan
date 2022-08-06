@@ -8,7 +8,6 @@ import Register from './components/Register';
 import ForgotPass from './components/ForgotPass';
 import EditProfile from './components/EditProfile';
 import FormMatch from './components/FormMatch';
-// import key from './asset/icon/key.svg'
 
 const App = () => {
   let detailUser = localStorage.getItem('idUser')
@@ -20,6 +19,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<Home />} exact />
           <Route path='/pertandingan' element={<Match />} />
+          {/* <Route path='/pertandingan/redirect/' element={<MatchRedirect />} /> */}
           <Route path='/login' element={detailUser ? <Navigate to='/' /> : <Login />} />
           <Route path='/register' element={detailUser ? <Navigate to='/' /> : <Register />} />
           <Route path='/forgot' element={<ForgotPass />} />
@@ -27,7 +27,6 @@ const App = () => {
           <Route path='/form-match' element={<FormMatch />} />
           {/* <Route component={Error}></Route> */}
         </Routes>
-        {/* <Footer /> */}
       </div>
     </Router>
   );

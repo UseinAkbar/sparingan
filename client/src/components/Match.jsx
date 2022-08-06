@@ -11,6 +11,7 @@ import pingpong from '../asset/Image/pingpong.jpg';
 import tennis from '../asset/Image/tennis.jpg';
 import date from '../asset/icon/Date_Icon.svg';
 import location from '../asset/icon/Location_Icon.svg';
+import Footer from './Footer';
 
 const Match = () => {
     const data = [{
@@ -128,6 +129,7 @@ const Match = () => {
                     return <MatchCard item={item} setBackgroundCard={setBackgroundCard} />
                 })}
             </div>
+            <Footer />
         </div>
     )
 }

@@ -2,6 +2,10 @@
     display: flex;
     justify-content: space-between;
     padding: 1.5rem 14rem;
+    background-color: $color-primary;
+    position: sticky;
+    top: 0;
+    z-index: 3;
 
     &__group {
         display: grid;
@@ -17,6 +21,12 @@
     &__link,
     &__link:visited {
         color: $color-compliment;
+        transition: .1s ease;
+
+        &.active {
+            color: $color-secondary;
+            font-weight: 700;
+        }
 
         &:hover {
             color: $color-secondary;
@@ -40,7 +50,7 @@
         text-decoration: none;
         font-weight: 600;
         font-size: 1.6rem;
-        transition: .1s ease;
+        transition: .15s ease;
     }
 }
 
